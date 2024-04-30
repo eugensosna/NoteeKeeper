@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_keeper/screens/words_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
       title: "Wortschatzchen",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
+      home: const WordsList(),
+
+      
     );
   }
 }

@@ -8,7 +8,7 @@ class WordsList extends StatefulWidget {
 }
 
 class _WordsListState extends State<WordsList> {
-  int count = 0;
+  int count = 2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

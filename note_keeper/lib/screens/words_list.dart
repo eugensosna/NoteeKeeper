@@ -4,11 +4,14 @@ class WordsList extends StatefulWidget {
   const WordsList({super.key});
 
   @override
-  _WordsListState createState() => _WordsListState();
+  State <StatefulWidget> createState(){
+    return WordsListState();
+  } 
 }
 
-class _WordsListState extends State<WordsList> {
+class WordsListState extends State<WordsList> {
   int count = 2;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,24 +19,34 @@ class _WordsListState extends State<WordsList> {
         title: const Text('Words'),
       ),
       body: getWordsListView(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+        debugPrint("kkk");
+      },
+      tooltip: "Add note",
+      child: const Icon(Icons.add),
+      
+      ),
     );
   }
 
   ListView getWordsListView() {
-    TextStyle titleStyle = const TextStyle(fontSize: 16);
+    
+    TextStyle? titleStile = Theme.of(context).textTheme.labelLarge;
     return ListView.builder(
-      itemCount: count,
+      
+              itemCount: count,
       itemBuilder: (context, index) {
         return Card(
           color: Colors.white,
           elevation: 2.0,
-          child: onTap(),
+          child: listWords(),
         );
       },
     );
   }
 
-  ListTile onTap() {
+  ListTile listWords() {
     return const ListTile(
       leading: CircleAvatar(
         backgroundColor: Colors.yellow,
